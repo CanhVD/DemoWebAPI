@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DemoWebAPI.Models;
 
@@ -33,7 +30,7 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=192.168.76.7;database=demo_canhvd;user=canhvd;password=Venesa@123", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.17-mysql"));
+        => optionsBuilder.UseMySql("server=127.0.0.1;database=demo_api_net_core;user=root;password=", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.17-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
