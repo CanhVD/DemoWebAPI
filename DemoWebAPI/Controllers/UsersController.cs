@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DemoWebAPI.Models;
+using DemoWebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DemoWebAPI.Models;
 
 namespace DemoWebAPI.Controllers
 {
@@ -14,6 +10,8 @@ namespace DemoWebAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+
+        private readonly SessionService _session;
 
         public UsersController(ApplicationDbContext context)
         {
