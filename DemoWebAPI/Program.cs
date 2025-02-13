@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using DemoWebAPI.Configs;
 using DemoWebAPI.Models;
+using DemoWebAPI.Repository;
 using HRM.ApiService.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,11 @@ builder.Services.AddApiVersioning(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//builder.Services.AddTransient<IMyService, MyService>();  // Mỗi lần gọi sẽ tạo mới
+//builder.Services.AddScoped<IMyService, MyService>();  // Dùng chung trong mỗi request
+builder.Services.AddSingleton<IMyService, MyService>(); // Dùng chung trong toàn bộ ứng dụng
+
 
 // Lấy chuỗi kết nối từ appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
